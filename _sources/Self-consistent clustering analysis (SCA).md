@@ -1,4 +1,4 @@
-# here is my first edit of the jupyter book
+# Self-consistent clustering analysis (SCA)
 
 This is a trial letter
 

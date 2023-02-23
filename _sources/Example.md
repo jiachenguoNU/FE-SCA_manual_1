@@ -1,4 +1,4 @@
-# here is my first edit of the jupyter book
+# Example: uniaxial tension test of glass fiber specimen
 
 This is a trial letter
 
