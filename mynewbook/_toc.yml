@@ -4,7 +4,7 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
-- file: section1
+- file: Multiscale simulation
+- file: Self-consistent clustering analysis (SCA)
+- file: SCA VUMAT
+- file: Example
