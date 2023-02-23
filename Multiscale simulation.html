@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Self-consistent clustering analysis (SCA)" href="Self-consistent%20clustering%20analysis%20%28SCA%29.html" />
@@ -358,11 +360,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#an-example-cell">
-   An example cell
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">
    Create a notebook with MyST Markdown
   </a>
@@ -392,11 +389,6 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#an-example-cell">
-   An example cell
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">
    Create a notebook with MyST Markdown
   </a>
@@ -418,12 +410,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="multiscale-simulation">
 <h1>Multiscale simulation<a class="headerlink" href="#multiscale-simulation" title="Permalink to this headline">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Permalink to this headline">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
+<p>Hierarchical material systems are widespread in nature. A myriad of concurrent simulation techniques has been developed to model the mechanical behavior of hierarchical multiscale materials. In these techniques, the macro-scale simulation can be done using traditional numerical methods such as finite element analysis whereas the micro-scale analysis can use finite element <span id="id1">[<a class="reference internal" href="#id4" title="Frédéric Feyel and Jean-Louis Chaboche. Fe2 multiscale approach for modelling the elastoviscoplastic behaviour of long fibre sic/ti composite materials. Computer methods in applied mechanics and engineering, 183(3-4):309–330, 2000.">FC00</a>]</span> or fast Fourier transform-based method\cite{kochmann2016two}. The total degree of freedom (DOF) of the system equals to DOF of the micro scale multiplied by DOF of the macro scale. As a result, one common drawback of these methods is the exorbitant computational cost, especially when the DOF of the micro scale is large. To this end, various reduced-order modeling techniques have been applied to micro-scale simulation problems to reduce the computational cost <span id="id2">[<a class="reference internal" href="#id7" title="Pierre Ladevèze, J-C Passieux, and David Néron. The latin multiscale computational method and the proper generalized decomposition. Computer Methods in Applied Mechanics and Engineering, 199(21-22):1287–1296, 2010.">LadevezePNeron10</a>, <a class="reference internal" href="#id8" title="Zeliang Liu, MA Bessa, and Wing Kam Liu. Self-consistent clustering analysis: an efficient multi-scale scheme for inelastic heterogeneous materials. Computer Methods in Applied Mechanics and Engineering, 306:319–341, 2016.">LBL16</a>, <a class="reference internal" href="#id5" title="Jean-Claude Michel and Pierre Suquet. Nonuniform transformation field analysis. International journal of solids and structures, 40(25):6937–6955, 2003.">MS03</a>, <a class="reference internal" href="#id6" title="Julien Yvonnet and Q-C He. The reduced model multiscale method (r3m) for the non-linear homogenization of hyperelastic media at finite strains. Journal of Computational Physics, 223(1):341–368, 2007.">YH07</a>]</span>. Among them, Self-consistent clustering analysis (SCA) is a mechanistic, data-driven method that can model the mechanical response of micro-scale problems while efficiently saving computational time using the <span class="math notranslate nohighlight">\(k\)</span>-means clustering algorithm.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
@@ -445,7 +432,6 @@ in-line with the rest of your content.</p>
 <p class="admonition-title">See also</p>
 <p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
 </div>
-</section>
 <section id="create-a-notebook-with-myst-markdown">
 <h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Permalink to this headline">#</a></h2>
 <p>MyST Markdown notebooks are defined by two things:</p>
@@ -461,6 +447,25 @@ See the YAML at the top of this page for example.</p></li>
 <p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
 </pre></div>
+</div>
+<div class="docutils container" id="id3">
+<dl class="citation">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">FC00</a></span></dt>
+<dd><p>Frédéric Feyel and Jean-Louis Chaboche. Fe2 multiscale approach for modelling the elastoviscoplastic behaviour of long fibre sic/ti composite materials. <em>Computer methods in applied mechanics and engineering</em>, 183(3-4):309–330, 2000.</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id2">LadevezePNeron10</a></span></dt>
+<dd><p>Pierre Ladevèze, J-C Passieux, and David Néron. The latin multiscale computational method and the proper generalized decomposition. <em>Computer Methods in Applied Mechanics and Engineering</em>, 199(21-22):1287–1296, 2010.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id2">LBL16</a></span></dt>
+<dd><p>Zeliang Liu, MA Bessa, and Wing Kam Liu. Self-consistent clustering analysis: an efficient multi-scale scheme for inelastic heterogeneous materials. <em>Computer Methods in Applied Mechanics and Engineering</em>, 306:319–341, 2016.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">MS03</a></span></dt>
+<dd><p>Jean-Claude Michel and Pierre Suquet. Nonuniform transformation field analysis. <em>International journal of solids and structures</em>, 40(25):6937–6955, 2003.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id2">YH07</a></span></dt>
+<dd><p>Julien Yvonnet and Q-C He. The reduced model multiscale method (r3m) for the non-linear homogenization of hyperelastic media at finite strains. <em>Journal of Computational Physics</em>, 223(1):341–368, 2007.</p>
+</dd>
+</dl>
 </div>
 </section>
 </section>

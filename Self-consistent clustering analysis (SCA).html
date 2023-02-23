@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="SCA VUMAT" href="SCA%20VUMAT.html" />
@@ -289,36 +291,12 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-s-my-first-section">
-   Here’s my first section
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
@@ -330,19 +308,6 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-s-my-first-section">
-   Here’s my first section
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -352,11 +317,82 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="self-consistent-clustering-analysis-sca">
 <h1>Self-consistent clustering analysis (SCA)<a class="headerlink" href="#self-consistent-clustering-analysis-sca" title="Permalink to this headline">#</a></h1>
-<p>This is a trial letter</p>
-<section id="here-s-my-first-section">
-<span id="section-label"></span><h2>Here’s my first section<a class="headerlink" href="#here-s-my-first-section" title="Permalink to this headline">#</a></h2>
-<p>Here is a <a class="reference internal" href="intro.html"><span class="doc std std-doc">reference to the intro</span></a>. Here is a reference to <a class="reference internal" href="#section-label"><span class="std std-ref">sss</span></a>.</p>
-</section>
+<p>The computational paradigm of SCA mainly consists of 2 stages, namely the offline stage and the online stage. In the offline stage, material points with similar elastic mechanical responses are grouped into the same cluster. The material points are clustered using <span class="math notranslate nohighlight">\(k-\)</span> means clustering algorithm based on the strain concentration tensor <span class="math notranslate nohighlight">\(\mathbf{A}_{m}(\mathbf{x})\)</span>, which is defined as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2b66da8c-d0f1-4272-b538-1eb15f92c8d8">
+<span class="eqno">(1)<a class="headerlink" href="#equation-2b66da8c-d0f1-4272-b538-1eb15f92c8d8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \boldsymbol{\varepsilon}_{m}(\mathbf{x})=\mathbf{A}_{m}(\mathbf{x}): \boldsymbol{\varepsilon}_{M} 
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon}_{M}\)</span> is the prescribed macroscopic strain along different directions, <span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon}_{m}\)</span> is the resultant local strain in the micro-scale level. Note only elastic response is required for the offline computations since we are assuming that the material points having similar mechanical responses in the elastic range should behave similarly in the nonlinear plastic range \cite{liu2016self}. With the obtained strain concentration tensor <span class="math notranslate nohighlight">\(\mathbf{A}_{m}(\mathbf{x})\)</span> at each different material point, the whole computational domain can be effectively decomposed by the <span class="math notranslate nohighlight">\(k\)</span>-means clustering algorithm. Therefore, the number of DOF for the problem can be significantly reduced. \ref{fig:Fig_domain16}(c) and (d)). As shown in Fig. 20, the 45<span class="math notranslate nohighlight">\(\times\)</span>45 mesh can be decomposed into 12 clusters. Therefore, the total degree of freedom is reduced from 2025 to 12.</p>
+<p>For the clustered material points, we assume the local variable <span class="math notranslate nohighlight">\(\beta(x)\)</span> (such as displacement, stress, strain and etc) is uniform inside each cluster. We introduce characteristic function <span class="math notranslate nohighlight">\(\chi^I(x)\)</span> in <span class="math notranslate nohighlight">\(I-\)</span> th cluster as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-29ea2039-a9fb-4609-ae89-e54c9bfdc99d">
+<span class="eqno">(2)<a class="headerlink" href="#equation-29ea2039-a9fb-4609-ae89-e54c9bfdc99d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \int_{\Omega} \chi^{I}(\mathbf{x})[\bullet] d \mathbf{x} \equiv \int_{\Omega^{I}}[\bullet] d \mathbf{x} 
+\end{equation}\]</div>
+<p>Therefore, local variable <span class="math notranslate nohighlight">\(\beta(x)\)</span> can be expressed as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b0d2d50d-c63e-4545-8ff7-fa71b7de9dee">
+<span class="eqno">(3)<a class="headerlink" href="#equation-b0d2d50d-c63e-4545-8ff7-fa71b7de9dee" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \beta(\mathbf{x})=\sum_{I=1}^{k} \beta^{I} \chi^{I}(\mathbf{x}) 
+ \label{beta}
+\end{equation}\]</div>
+<p>In micromechanics, the linear momentum balance equation can be written as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a21c4a3f-cad4-4082-8d78-33e7d897a8de">
+<span class="eqno">(4)<a class="headerlink" href="#equation-a21c4a3f-cad4-4082-8d78-33e7d897a8de" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \frac{\partial \sigma_{i j}(\mathbf{x})}{\partial x_{i}}=0
+  \label{equal}
+\end{equation}\]</div>
+<p>By assuming a linear elastic reference material with elastic modulus <span class="math notranslate nohighlight">\(C^0\)</span>, <span class="math notranslate nohighlight">\(\sigma_ij\)</span> can be written as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c434d467-2391-4491-a59f-c0ea11137249">
+<span class="eqno">(5)<a class="headerlink" href="#equation-c434d467-2391-4491-a59f-c0ea11137249" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \sigma_ij(x) = C^0 : \epsilon(x) + p(x)
+ \label{polarization}
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(p(x)\)</span> is the polarization stress. Substituting Eq. \ref{polarization} into Eq.\ref{equal}, we have</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c8503a0b-d817-4cfd-9e69-f0b8fb777ccb">
+<span class="eqno">(6)<a class="headerlink" href="#equation-c8503a0b-d817-4cfd-9e69-f0b8fb777ccb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ C_{i j k l}^{0} \frac{\partial \varepsilon_{k l}(\mathbf{x})}{\partial x_{i}}=-\frac{\partial p_{i j}(\mathbf{x})}{\partial x_{i}} 
+ \label{pde}
+\end{equation}\]</div>
+<p>which is a linear partial differential equation. Using the theory of Green’s function, the solution of Eq. \ref{pde} can be written as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6ad223cf-7f6e-4e3e-bd90-5ef15a140809">
+<span class="eqno">(7)<a class="headerlink" href="#equation-6ad223cf-7f6e-4e3e-bd90-5ef15a140809" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \varepsilon(\mathbf{x})+\int_{\Omega} \Phi^{0}\left(\mathbf{x}, \mathbf{x}^{\prime}\right): \mathbf{p}\left(\mathbf{x}^{\prime}\right) d \mathbf{x}^{\prime}-\varepsilon^{0}=0 
+ \label{7}
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon_0\)</span> is the homogeneous far-field strain in the reference material. Substituting Eq. \ref{polarization} into Eq. \ref{7}, we have</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e4d57479-f082-4d8c-82ad-f9439556df07">
+<span class="eqno">(8)<a class="headerlink" href="#equation-e4d57479-f082-4d8c-82ad-f9439556df07" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \varepsilon(\mathbf{x})+\int_{\Omega} \Phi^{0}\left(\mathbf{x}, \mathbf{x}^{\prime}\right):\left[\sigma\left(\mathbf{x}^{\prime}\right)-\mathbf{C}^{0}: \varepsilon\left(\mathbf{x}^{\prime}\right)\right] d \mathbf{x}^{\prime}-\varepsilon^{0}=0
+ \label{8}
+\end{equation}\]</div>
+<p>which is the so-called Lippmann-Schwinger equation. Since material points have been decomposed into different clusters, the averaged Lippmann-Schwinger equation can be written as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-391633bb-e244-4249-b4b5-5b45a4ec8159">
+<span class="eqno">(9)<a class="headerlink" href="#equation-391633bb-e244-4249-b4b5-5b45a4ec8159" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \frac{1}{c^{I}|\Omega|} \int_{\Omega} \chi^{I}(\mathbf{x})  \varepsilon(\mathbf{x}) d \mathbf{x}  +\frac{1}{c^{I}|\Omega|} \int_{\Omega} \int_{\Omega} \chi^{I}(\mathbf{x}) \Phi^{0}\left(\mathbf{x}, \mathbf{x}^{\prime}\right):\left[ \sigma\left(\mathbf{x}^{\prime}\right)-\mathbf{C}^{0}:  \varepsilon\left(\mathbf{x}^{\prime}\right)\right] d \mathbf{x}^{\prime} d \mathbf{x}- \varepsilon^{0}=0 
+  \label{9}
+\end{equation}\]</div>
+<p>we can obtain the expression for stress and strain using Eq. \ref{beta}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a3765caa-35fe-4fe5-bd92-7d63f4a0f2c2">
+<span class="eqno">(10)<a class="headerlink" href="#equation-a3765caa-35fe-4fe5-bd92-7d63f4a0f2c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \sigma(\mathbf{x})=\sum_{J=1}^{k} \chi^{J}(\mathbf{x})  \sigma^{J} , \quad  \varepsilon(\mathbf{x})=\sum_{J=1}^{k} \chi^{J}(\mathbf{x})  \varepsilon^{J}
+ \label{discretize}
+\end{equation}\]</div>
+<p>Substituting Eq. \ref{discretize} into Eq. \ref{9}, we obtain the discretized Lippmann-Schwinger equation and it can be simplified as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5e14c008-093f-425d-80ee-f10060c5c11d">
+<span class="eqno">(11)<a class="headerlink" href="#equation-5e14c008-093f-425d-80ee-f10060c5c11d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \varepsilon^{I}+\sum_{J=1}^{k}\left[\frac{1}{c^{I}|\Omega|} \int_{\Omega} \int_{\Omega} \chi^{I}(\mathbf{x}) \chi^{J}\left(\mathbf{x}^{\prime}\right) \Phi^{0}\left(\mathbf{x}, \mathbf{x}^{\prime}\right) d \mathbf{x}^{\prime} d \mathbf{x}\right]:\left[ \sigma^{J}-\mathbf{C}^{0}: \varepsilon^{J}\right]-\Delta \varepsilon^{0}=0 
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(C_I\)</span> is the volumn fraction of cluster <span class="math notranslate nohighlight">\(I\)</span>. The term inside the bracket is defined as the interaction tensors <span class="math notranslate nohighlight">\( \mathbf{D}^{I J}\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-8b5c0749-97f1-47c2-8a76-e6ea4d45d152">
+<span class="eqno">(12)<a class="headerlink" href="#equation-8b5c0749-97f1-47c2-8a76-e6ea4d45d152" title="Permalink to this equation">#</a></span>\[\begin{equation} \label{Eq 27}
+    \bm{D}^{IJ} = \frac{1}{c^{I}|\Omega|} \int_{\Omega} \int_{\Omega}\chi^{I}(x)\chi^{J}(y) \Phi^{0}(x,y)dxdy.
+\end{equation}\]</div>
+<p>In the equation, <span class="math notranslate nohighlight">\( \mathbf{D}^{I J}\)</span> is the interaction tensor between <span class="math notranslate nohighlight">\(I\)</span>th and <span class="math notranslate nohighlight">\(J\)</span>th clusters. In the online stage, the mechanical response of the microstructure is obtained by solving the incremental form of discretized \textbf{L}ippmann-\textbf{S}chwinger equation.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d043404b-c434-4d1e-90f6-b8791df5a7b0">
+<span class="eqno">(13)<a class="headerlink" href="#equation-d043404b-c434-4d1e-90f6-b8791df5a7b0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \Delta \varepsilon^{I}+\sum_{J=1}^{k} \mathbf{D}^{I J}:\left[\Delta \sigma^{J}-\mathbf{C}^{0}: \Delta \varepsilon^{J}\right]-\Delta \varepsilon^{0}=0 
+ \label{lp}
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf\Delta \varepsilon^{J}\)</span> and <span class="math notranslate nohighlight">\(\mathbf\Delta \sigma^{J}\)</span> are incremental strain and stress in the <span class="math notranslate nohighlight">\(J\)</span>th cluster; <span class="math notranslate nohighlight">\(k\)</span> is the number of clusters; <span class="math notranslate nohighlight">\(\mathbf{C}^{0}\)</span> is the reference material stiffness; <span class="math notranslate nohighlight">\(\mathbf\Delta \varepsilon^{0}\)</span> is the far-field strain. Note that Eq \ref{lp} is obtained by averaging the stress and strain in each different cluster. Since the number of clusters is far less than the number of DOF of the original system, it can be much faster to solve Eq \ref{lp}. For more details please see \cite{liu2016self}.</p>
 </section>
 
     <script type="text/x-thebe-config">
