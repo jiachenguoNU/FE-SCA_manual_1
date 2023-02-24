@@ -118,7 +118,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Introduction%20to%20Multiscale%20simulation.html">
-   Multiscale simulation
+   Introduction to Multiscale simulation
   </a>
  </li>
  <li class="toctree-l1">
@@ -369,81 +369,103 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="self-consistent-clustering-analysis-sca">
 <h1>Self-consistent clustering analysis (SCA)<a class="headerlink" href="#self-consistent-clustering-analysis-sca" title="Permalink to this headline">#</a></h1>
 <p>The computational paradigm of SCA mainly consists of 2 stages, namely the offline stage and the online stage. In the offline stage, material points with similar elastic mechanical responses are grouped into the same cluster. The material points are clustered using <span class="math notranslate nohighlight">\(k-\)</span> means clustering algorithm based on the strain concentration tensor <span class="math notranslate nohighlight">\(\mathbf{A}_{m}(\mathbf{x})\)</span>, which is defined as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9a904da-10fd-4a39-a746-75a44c48745a">
-<span class="eqno">(1)<a class="headerlink" href="#equation-d9a904da-10fd-4a39-a746-75a44c48745a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a3c15a45-8ff5-4f92-9432-c25e7fe02803">
+<span class="eqno">(1)<a class="headerlink" href="#equation-a3c15a45-8ff5-4f92-9432-c25e7fe02803" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \boldsymbol{\varepsilon}_{m}(\mathbf{x})=\mathbf{A}_{m}(\mathbf{x}): \boldsymbol{\varepsilon}_{M} 
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon}_{M}\)</span> is the prescribed macroscopic strain along different directions, <span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon}_{m}\)</span> is the resultant local strain in the micro-scale level. Note only elastic response is required for the offline computations since we are assuming that the material points having similar mechanical responses in the elastic range should behave similarly in the nonlinear plastic range \cite{liu2016self}. With the obtained strain concentration tensor <span class="math notranslate nohighlight">\(\mathbf{A}_{m}(\mathbf{x})\)</span> at each different material point, the whole computational domain can be effectively decomposed by the <span class="math notranslate nohighlight">\(k\)</span>-means clustering algorithm. Therefore, the number of DOF for the problem can be significantly reduced. \ref{fig:Fig_domain16}(c) and (d)). As shown in Fig. 20, the 45<span class="math notranslate nohighlight">\(\times\)</span>45 mesh can be decomposed into 12 clusters. Therefore, the total degree of freedom is reduced from 2025 to 12.</p>
 <p>For the clustered material points, we assume the local variable <span class="math notranslate nohighlight">\(\beta(x)\)</span> (such as displacement, stress, strain and etc) is uniform inside each cluster. We introduce characteristic function <span class="math notranslate nohighlight">\(\chi^I(x)\)</span> in <span class="math notranslate nohighlight">\(I-\)</span> th cluster as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5c26f441-6cf9-4e87-be1c-cfebfa4e6c83">
-<span class="eqno">(2)<a class="headerlink" href="#equation-5c26f441-6cf9-4e87-be1c-cfebfa4e6c83" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1018c6cd-c16b-4695-85b1-f38921029b38">
+<span class="eqno">(2)<a class="headerlink" href="#equation-1018c6cd-c16b-4695-85b1-f38921029b38" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \int_{\Omega} \chi^{I}(\mathbf{x})[\bullet] d \mathbf{x} \equiv \int_{\Omega^{I}}[\bullet] d \mathbf{x} 
 \end{equation}\]</div>
 <p>Therefore, local variable <span class="math notranslate nohighlight">\(\beta(x)\)</span> can be expressed as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7281a12f-44eb-4b1a-b9a5-f9759b850994">
-<span class="eqno">(3)<a class="headerlink" href="#equation-7281a12f-44eb-4b1a-b9a5-f9759b850994" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e1269af3-ab78-4f10-ac5c-0a38b6b41edf">
+<span class="eqno">(3)<a class="headerlink" href="#equation-e1269af3-ab78-4f10-ac5c-0a38b6b41edf" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \beta(\mathbf{x})=\sum_{I=1}^{k} \beta^{I} \chi^{I}(\mathbf{x}) 
  \label{beta}
 \end{equation}\]</div>
 <p>In micromechanics, the linear momentum balance equation can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0469db17-3c82-4b6d-93f3-5e1d98ded54f">
-<span class="eqno">(4)<a class="headerlink" href="#equation-0469db17-3c82-4b6d-93f3-5e1d98ded54f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1dedda38-671b-4305-aad2-a9d84f8454c1">
+<span class="eqno">(4)<a class="headerlink" href="#equation-1dedda38-671b-4305-aad2-a9d84f8454c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \frac{\partial \sigma_{i j}(\mathbf{x})}{\partial x_{i}}=0
   \label{equal}
 \end{equation}\]</div>
 <p>By assuming a linear elastic reference material with elastic modulus <span class="math notranslate nohighlight">\(C^0\)</span>, <span class="math notranslate nohighlight">\(\sigma_ij\)</span> can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8aec0ffc-f563-4011-92f6-5269dcab805b">
-<span class="eqno">(5)<a class="headerlink" href="#equation-8aec0ffc-f563-4011-92f6-5269dcab805b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0e7d4584-c302-425f-929f-08e1e0b25b1a">
+<span class="eqno">(5)<a class="headerlink" href="#equation-0e7d4584-c302-425f-929f-08e1e0b25b1a" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \sigma_ij(x) = C^0 : \epsilon(x) + p(x)
  \label{polarization}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(p(x)\)</span> is the polarization stress. Substituting Eq. \ref{polarization} into Eq.\ref{equal}, we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b6bb6b0-b8af-4ea4-8ac8-4df001d76cf1">
-<span class="eqno">(6)<a class="headerlink" href="#equation-5b6bb6b0-b8af-4ea4-8ac8-4df001d76cf1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fc274c17-eb6a-4ea7-93fa-9cdcf7436a4a">
+<span class="eqno">(6)<a class="headerlink" href="#equation-fc274c17-eb6a-4ea7-93fa-9cdcf7436a4a" title="Permalink to this equation">#</a></span>\[\begin{equation}
  C_{i j k l}^{0} \frac{\partial \varepsilon_{k l}(\mathbf{x})}{\partial x_{i}}=-\frac{\partial p_{i j}(\mathbf{x})}{\partial x_{i}} 
  \label{pde}
 \end{equation}\]</div>
 <p>which is a linear partial differential equation. Using the theory of Green’s function, the solution of Eq. \ref{pde} can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-47de58c0-1be8-4c01-bc22-b3b92e9e4f29">
-<span class="eqno">(7)<a class="headerlink" href="#equation-47de58c0-1be8-4c01-bc22-b3b92e9e4f29" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a4830ef7-186e-45d2-a2f5-cabaf4886ef3">
+<span class="eqno">(7)<a class="headerlink" href="#equation-a4830ef7-186e-45d2-a2f5-cabaf4886ef3" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \varepsilon(\mathbf{x})+\int_{\Omega} \Phi^{0}\left(\mathbf{x}, \mathbf{x}^{\prime}\right): \mathbf{p}\left(\mathbf{x}^{\prime}\right) d \mathbf{x}^{\prime}-\varepsilon^{0}=0 
  \label{7}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\epsilon_0\)</span> is the homogeneous far-field strain in the reference material. Substituting Eq. \ref{polarization} into Eq. \ref{7}, we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-01ecf4c5-290b-47ad-9e0a-b61c1493ff6f">
-<span class="eqno">(8)<a class="headerlink" href="#equation-01ecf4c5-290b-47ad-9e0a-b61c1493ff6f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-16164b0e-3fcb-4b40-9a70-57ee837c7670">
+<span class="eqno">(8)<a class="headerlink" href="#equation-16164b0e-3fcb-4b40-9a70-57ee837c7670" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \varepsilon(\mathbf{x})+\int_{\Omega} \Phi^{0}\left(\mathbf{x}, \mathbf{x}^{\prime}\right):\left[\sigma\left(\mathbf{x}^{\prime}\right)-\mathbf{C}^{0}: \varepsilon\left(\mathbf{x}^{\prime}\right)\right] d \mathbf{x}^{\prime}-\varepsilon^{0}=0
  \label{8}
 \end{equation}\]</div>
 <p>which is the so-called Lippmann-Schwinger equation. Since material points have been decomposed into different clusters, the averaged Lippmann-Schwinger equation can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c0481e35-760d-4272-978e-2fcc5a105fb4">
-<span class="eqno">(9)<a class="headerlink" href="#equation-c0481e35-760d-4272-978e-2fcc5a105fb4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cd800cd6-56e5-4228-b31e-ffdb0dd67140">
+<span class="eqno">(9)<a class="headerlink" href="#equation-cd800cd6-56e5-4228-b31e-ffdb0dd67140" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \frac{1}{c^{I}|\Omega|} \int_{\Omega} \chi^{I}(\mathbf{x})  \varepsilon(\mathbf{x}) d \mathbf{x}  +\frac{1}{c^{I}|\Omega|} \int_{\Omega} \int_{\Omega} \chi^{I}(\mathbf{x}) \Phi^{0}\left(\mathbf{x}, \mathbf{x}^{\prime}\right):\left[ \sigma\left(\mathbf{x}^{\prime}\right)-\mathbf{C}^{0}:  \varepsilon\left(\mathbf{x}^{\prime}\right)\right] d \mathbf{x}^{\prime} d \mathbf{x}- \varepsilon^{0}=0 
   \label{9}
 \end{equation}\]</div>
 <p>we can obtain the expression for stress and strain using Eq. \ref{beta}</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f0ca568a-bbac-405e-8026-01314bd1f01f">
-<span class="eqno">(10)<a class="headerlink" href="#equation-f0ca568a-bbac-405e-8026-01314bd1f01f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3bfba704-7a70-4a85-9699-ac604d9cb58d">
+<span class="eqno">(10)<a class="headerlink" href="#equation-3bfba704-7a70-4a85-9699-ac604d9cb58d" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \sigma(\mathbf{x})=\sum_{J=1}^{k} \chi^{J}(\mathbf{x})  \sigma^{J} , \quad  \varepsilon(\mathbf{x})=\sum_{J=1}^{k} \chi^{J}(\mathbf{x})  \varepsilon^{J}
  \label{discretize}
 \end{equation}\]</div>
 <p>Substituting Eq. \ref{discretize} into Eq. \ref{9}, we obtain the discretized Lippmann-Schwinger equation and it can be simplified as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e0e77c54-95dc-4a3d-bc5a-43d2f5e22d90">
-<span class="eqno">(11)<a class="headerlink" href="#equation-e0e77c54-95dc-4a3d-bc5a-43d2f5e22d90" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-73d54e33-453b-41a2-840d-efdd50288654">
+<span class="eqno">(11)<a class="headerlink" href="#equation-73d54e33-453b-41a2-840d-efdd50288654" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \varepsilon^{I}+\sum_{J=1}^{k}\left[\frac{1}{c^{I}|\Omega|} \int_{\Omega} \int_{\Omega} \chi^{I}(\mathbf{x}) \chi^{J}\left(\mathbf{x}^{\prime}\right) \Phi^{0}\left(\mathbf{x}, \mathbf{x}^{\prime}\right) d \mathbf{x}^{\prime} d \mathbf{x}\right]:\left[ \sigma^{J}-\mathbf{C}^{0}: \varepsilon^{J}\right]-\Delta \varepsilon^{0}=0 
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(C_I\)</span> is the volumn fraction of cluster <span class="math notranslate nohighlight">\(I\)</span>. The term inside the bracket is defined as the interaction tensors <span class="math notranslate nohighlight">\( \mathbf{D}^{I J}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-94d6d9dc-99e3-48d7-be48-8a11f81ee31d">
-<span class="eqno">(12)<a class="headerlink" href="#equation-94d6d9dc-99e3-48d7-be48-8a11f81ee31d" title="Permalink to this equation">#</a></span>\[\begin{equation} \label{Eq 27}
+<div class="amsmath math notranslate nohighlight" id="equation-e54f1a89-a672-45d3-a4a3-d8ea2d301748">
+<span class="eqno">(12)<a class="headerlink" href="#equation-e54f1a89-a672-45d3-a4a3-d8ea2d301748" title="Permalink to this equation">#</a></span>\[\begin{equation} \label{Eq 27}
     \bm{D}^{IJ} = \frac{1}{c^{I}|\Omega|} \int_{\Omega} \int_{\Omega}\chi^{I}(x)\chi^{J}(y) \Phi^{0}(x,y)dxdy.
 \end{equation}\]</div>
 <p>In the equation, <span class="math notranslate nohighlight">\( \mathbf{D}^{I J}\)</span> is the interaction tensor between <span class="math notranslate nohighlight">\(I\)</span>th and <span class="math notranslate nohighlight">\(J\)</span>th clusters. In the online stage, the mechanical response of the microstructure is obtained by solving the incremental form of discretized \textbf{L}ippmann-\textbf{S}chwinger equation.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf33427c-b0cd-4c05-9eca-26ba7f5ee6fe">
-<span class="eqno">(13)<a class="headerlink" href="#equation-cf33427c-b0cd-4c05-9eca-26ba7f5ee6fe" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f337dd3d-19cb-4200-afe7-31a5f47b9bf3">
+<span class="eqno">(13)<a class="headerlink" href="#equation-f337dd3d-19cb-4200-afe7-31a5f47b9bf3" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \Delta \varepsilon^{I}+\sum_{J=1}^{k} \mathbf{D}^{I J}:\left[\Delta \sigma^{J}-\mathbf{C}^{0}: \Delta \varepsilon^{J}\right]-\Delta \varepsilon^{0}=0 
  \label{lp}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf\Delta \varepsilon^{J}\)</span> and <span class="math notranslate nohighlight">\(\mathbf\Delta \sigma^{J}\)</span> are incremental strain and stress in the <span class="math notranslate nohighlight">\(J\)</span>th cluster; <span class="math notranslate nohighlight">\(k\)</span> is the number of clusters; <span class="math notranslate nohighlight">\(\mathbf{C}^{0}\)</span> is the reference material stiffness; <span class="math notranslate nohighlight">\(\mathbf\Delta \varepsilon^{0}\)</span> is the far-field strain. Note that Eq \ref{lp} is obtained by averaging the stress and strain in each different cluster. Since the number of clusters is far less than the number of DOF of the original system, it can be much faster to solve Eq \ref{lp}. For more details please see \cite{liu2016self}.</p>
+<div class="docutils container" id="id1">
+<dl class="citation">
+<dt class="label" id="id2"><span class="brackets">FC00</span></dt>
+<dd><p>Frédéric Feyel and Jean-Louis Chaboche. Fe2 multiscale approach for modelling the elastoviscoplastic behaviour of long fibre sic/ti composite materials. <em>Computer methods in applied mechanics and engineering</em>, 183(3-4):309–330, 2000.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets">KWR+16</span></dt>
+<dd><p>Julian Kochmann, Stephan Wulfinghoff, Stefanie Reese, Jaber Rezaei Mianroodi, and Bob Svendsen. Two-scale fe–fft-and phase-field-based computational modeling of bulk microstructural evolution and macroscopic material behavior. <em>Computer Methods in Applied Mechanics and Engineering</em>, 305:89–110, 2016.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">LadevezePNeron10</span></dt>
+<dd><p>Pierre Ladevèze, J-C Passieux, and David Néron. The latin multiscale computational method and the proper generalized decomposition. <em>Computer Methods in Applied Mechanics and Engineering</em>, 199(21-22):1287–1296, 2010.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets">LBL16</span></dt>
+<dd><p>Zeliang Liu, MA Bessa, and Wing Kam Liu. Self-consistent clustering analysis: an efficient multi-scale scheme for inelastic heterogeneous materials. <em>Computer Methods in Applied Mechanics and Engineering</em>, 306:319–341, 2016.</p>
+</dd>
+<dt class="label" id="id3"><span class="brackets">MS03</span></dt>
+<dd><p>Jean-Claude Michel and Pierre Suquet. Nonuniform transformation field analysis. <em>International journal of solids and structures</em>, 40(25):6937–6955, 2003.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets">YH07</span></dt>
+<dd><p>Julien Yvonnet and Q-C He. The reduced model multiscale method (r3m) for the non-linear homogenization of hyperelastic media at finite strains. <em>Journal of Computational Physics</em>, 223(1):341–368, 2007.</p>
+</dd>
+</dl>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

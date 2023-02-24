@@ -72,3 +72,6 @@ In the equation, $ \mathbf{D}^{I J}$ is the interaction tensor between $I$th and
  \label{lp}
 \end{equation}
 where $\mathbf\Delta \varepsilon^{J}$ and $\mathbf\Delta \sigma^{J}$ are incremental strain and stress in the $J$th cluster; $k$ is the number of clusters; $\mathbf{C}^{0}$ is the reference material stiffness; $\mathbf\Delta \varepsilon^{0}$ is the far-field strain. Note that Eq \ref{lp} is obtained by averaging the stress and strain in each different cluster. Since the number of clusters is far less than the number of DOF of the original system, it can be much faster to solve Eq \ref{lp}. For more details please see \cite{liu2016self}. 
+
+```{bibliography}
+```
