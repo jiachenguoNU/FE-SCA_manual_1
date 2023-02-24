@@ -1,6 +1,6 @@
 # SCA VUMAT
 
-```{code-cell}
+```none
 **  Materials
 *Material, name=SCA1
 *Density
