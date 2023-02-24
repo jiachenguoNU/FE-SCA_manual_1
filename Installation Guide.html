@@ -340,12 +340,46 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-of-abaqus">
+   Installation of ABAQUS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-of-intel-fortran-compiler">
+   Installation of Intel Fortran Compiler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-of-user-interface">
+   Installation of User Interface
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -357,6 +391,29 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-of-abaqus">
+   Installation of ABAQUS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-of-intel-fortran-compiler">
+   Installation of Intel Fortran Compiler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-of-user-interface">
+   Installation of User Interface
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -366,7 +423,33 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="installation-guide">
 <h1>Installation Guide<a class="headerlink" href="#installation-guide" title="Permalink to this headline">#</a></h1>
-<p>This guide shows the steps to install FE-SCA on your PC</p>
+<p>This guide shows the steps to install FE-SCA on your PC. FE-SCA requires 3 different software packages, i.e., <strong>ABAQUS (FE Anylasis), Intel Fortran Compiler (VUMAT for SCA), User Interface (Microstructure reconstruction and inp file generator)</strong></p>
+<section id="installation-of-abaqus">
+<h2>Installation of ABAQUS<a class="headerlink" href="#installation-of-abaqus" title="Permalink to this headline">#</a></h2>
+<p><strong>Abaqus FEA</strong> (formerly ABAQUS) is a suite of software tools used for finite element analysis and computer-aided engineering. It was first released in 1978 and is named after the abacus calculation tool, as reflected in its logo. The Abaqus product suite comprises five core software products.</p>
+<p>One of these products is Abaqus/CAE, which stands for “Complete Abaqus Environment” and is a software application used for both pre-processing (modeling and analysis of mechanical components and assemblies) and post-processing (visualizing the finite element analysis result). Abaqus/Viewer is a subset of Abaqus/CAE that includes only the post-processing module and can be launched independently.</p>
+<p>Another product is Abaqus/Standard, which is a general-purpose finite-element analyzer that uses an implicit integration scheme (traditional) to solve problems.</p>
+<p>Abaqus/Explicit is a finite-element analyzing tool that uses an explicit integration scheme to solve equations of nonlinear systems with complex contacts under transient loads.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the official webpage of <a class="reference external" href="https://www.3ds.com/products-services/simulia/products/abaqus/">ABAQUS</a> for more details.</p>
+</div>
+</section>
+<section id="installation-of-intel-fortran-compiler">
+<h2>Installation of Intel Fortran Compiler<a class="headerlink" href="#installation-of-intel-fortran-compiler" title="Permalink to this headline">#</a></h2>
+<p><strong>Intel Fortran Compiler</strong>, as part of Intel OneAPI HPC toolkit, is a group of Fortran compilers from Intel for Windows, macOS, and Linux. Since ABAQUS uses Fortran as its default language for user subroutine, Intel Fortran Compiler is required to run user subrountines.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the official webpage of <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html#gs.qyhlgt">Intel oneAPI</a> for more details.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See <a class="reference external" href="https://community.intel.com/t5/Intel-Fortran-Compiler/Linking-Fortran-compiler-with-Abaqus-minimal-required/td-p/1361849">this webpage</a> for step-by-step installation details to link ABAQUS with Intel Fortran Compiler</p>
+</div>
+</section>
+<section id="installation-of-user-interface">
+<h2>Installation of User Interface<a class="headerlink" href="#installation-of-user-interface" title="Permalink to this headline">#</a></h2>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
