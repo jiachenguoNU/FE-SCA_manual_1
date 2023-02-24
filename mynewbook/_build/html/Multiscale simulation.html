@@ -50,10 +50,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Self-consistent clustering analysis (SCA)" href="Self-consistent%20clustering%20analysis%20%28SCA%29.html" />
-    <link rel="prev" title="Welcome to your FE-SCA manual" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,26 +113,72 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Multiscale simulation
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Installation%20Guide.html">
+   Installation Guide
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Self-consistent%20clustering%20analysis%20%28SCA%29.html">
-   Self-consistent clustering analysis (SCA)
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="User%27s%20Guide.html">
+   User’s Guide
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="SCA%20VUMAT.html">
+     SCA VUMAT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Materials.html">
+     Materials
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="SCA%20VUMAT.html">
-   SCA VUMAT
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Theory%20Guide.html">
+   Theory Guide
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Self-consistent%20clustering%20analysis%20%28SCA%29.html">
+     Self-consistent clustering analysis (SCA)
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Example.html">
-   Example: uniaxial tension test of glass fiber specimen
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Tutorials.html">
+   Tutorials
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Single%20element%20analysis.html">
+     Single element analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Uniaxial%20tension%20of%20glass%20fiber%20composite.html">
+     Unaixial tension of glass fiber composite
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -408,7 +454,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="multiscale-simulation">
 <h1>Multiscale simulation<a class="headerlink" href="#multiscale-simulation" title="Permalink to this headline">#</a></h1>
-<p>Hierarchical material systems are widespread in nature. A myriad of concurrent simulation techniques has been developed to model the mechanical behavior of hierarchical multiscale materials. In these techniques, the macro-scale simulation can be done using traditional numerical methods such as finite element analysis whereas the micro-scale analysis can use finite element <span id="id1">[<a class="reference internal" href="#id4" title="Frédéric Feyel and Jean-Louis Chaboche. Fe2 multiscale approach for modelling the elastoviscoplastic behaviour of long fibre sic/ti composite materials. Computer methods in applied mechanics and engineering, 183(3-4):309–330, 2000.">FC00</a>]</span> or fast Fourier transform-based method\cite{kochmann2016two}. The total degree of freedom (DOF) of the system equals to DOF of the micro scale multiplied by DOF of the macro scale. As a result, one common drawback of these methods is the exorbitant computational cost, especially when the DOF of the micro scale is large. To this end, various reduced-order modeling techniques have been applied to micro-scale simulation problems to reduce the computational cost <span id="id2">[<a class="reference internal" href="#id7" title="Pierre Ladevèze, J-C Passieux, and David Néron. The latin multiscale computational method and the proper generalized decomposition. Computer Methods in Applied Mechanics and Engineering, 199(21-22):1287–1296, 2010.">LadevezePNeron10</a>, <a class="reference internal" href="#id8" title="Zeliang Liu, MA Bessa, and Wing Kam Liu. Self-consistent clustering analysis: an efficient multi-scale scheme for inelastic heterogeneous materials. Computer Methods in Applied Mechanics and Engineering, 306:319–341, 2016.">LBL16</a>, <a class="reference internal" href="#id5" title="Jean-Claude Michel and Pierre Suquet. Nonuniform transformation field analysis. International journal of solids and structures, 40(25):6937–6955, 2003.">MS03</a>, <a class="reference internal" href="#id6" title="Julien Yvonnet and Q-C He. The reduced model multiscale method (r3m) for the non-linear homogenization of hyperelastic media at finite strains. Journal of Computational Physics, 223(1):341–368, 2007.">YH07</a>]</span>. Among them, Self-consistent clustering analysis (SCA) is a mechanistic, data-driven method that can model the mechanical response of micro-scale problems while efficiently saving computational time using the $k$-means clustering algorithm.</p>
+<p>Hierarchical material systems are widespread in nature. A myriad of concurrent simulation techniques has been developed to model the mechanical behavior of hierarchical multiscale materials. In these techniques, the macro-scale simulation can be done using traditional numerical methods such as finite element analysis whereas the micro-scale analysis can use finite element <span id="id1">[<a class="reference internal" href="#id5" title="Frédéric Feyel and Jean-Louis Chaboche. Fe2 multiscale approach for modelling the elastoviscoplastic behaviour of long fibre sic/ti composite materials. Computer methods in applied mechanics and engineering, 183(3-4):309–330, 2000.">FC00</a>]</span> or fast Fourier transform-based method<span id="id2">[<a class="reference internal" href="#id11" title="Julian Kochmann, Stephan Wulfinghoff, Stefanie Reese, Jaber Rezaei Mianroodi, and Bob Svendsen. Two-scale fe–fft-and phase-field-based computational modeling of bulk microstructural evolution and macroscopic material behavior. Computer Methods in Applied Mechanics and Engineering, 305:89–110, 2016.">KWR+16</a>]</span>. The total degree of freedom (DOF) of the system equals to DOF of the micro scale multiplied by DOF of the macro scale. As a result, one common drawback of these methods is the exorbitant computational cost, especially when the DOF of the micro scale is large. To this end, various reduced-order modeling techniques have been applied to micro-scale simulation problems to reduce the computational cost <span id="id3">[<a class="reference internal" href="#id8" title="Pierre Ladevèze, J-C Passieux, and David Néron. The latin multiscale computational method and the proper generalized decomposition. Computer Methods in Applied Mechanics and Engineering, 199(21-22):1287–1296, 2010.">LadevezePNeron10</a>, <a class="reference internal" href="#id9" title="Zeliang Liu, MA Bessa, and Wing Kam Liu. Self-consistent clustering analysis: an efficient multi-scale scheme for inelastic heterogeneous materials. Computer Methods in Applied Mechanics and Engineering, 306:319–341, 2016.">LBL16</a>, <a class="reference internal" href="#id6" title="Jean-Claude Michel and Pierre Suquet. Nonuniform transformation field analysis. International journal of solids and structures, 40(25):6937–6955, 2003.">MS03</a>, <a class="reference internal" href="#id7" title="Julien Yvonnet and Q-C He. The reduced model multiscale method (r3m) for the non-linear homogenization of hyperelastic media at finite strains. Journal of Computational Physics, 223(1):341–368, 2007.">YH07</a>]</span>. Among them, Self-consistent clustering analysis (SCA) is a mechanistic, data-driven method that can model the mechanical response of micro-scale problems while efficiently saving computational time using the <span class="math notranslate nohighlight">\(k\)</span>-means clustering algorithm.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
@@ -446,21 +492,24 @@ See the YAML at the top of this page for example.</p></li>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
 </pre></div>
 </div>
-<div class="docutils container" id="id3">
+<div class="docutils container" id="id4">
 <dl class="citation">
-<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">FC00</a></span></dt>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">FC00</a></span></dt>
 <dd><p>Frédéric Feyel and Jean-Louis Chaboche. Fe2 multiscale approach for modelling the elastoviscoplastic behaviour of long fibre sic/ti composite materials. <em>Computer methods in applied mechanics and engineering</em>, 183(3-4):309–330, 2000.</p>
 </dd>
-<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id2">LadevezePNeron10</a></span></dt>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id2">KWR+16</a></span></dt>
+<dd><p>Julian Kochmann, Stephan Wulfinghoff, Stefanie Reese, Jaber Rezaei Mianroodi, and Bob Svendsen. Two-scale fe–fft-and phase-field-based computational modeling of bulk microstructural evolution and macroscopic material behavior. <em>Computer Methods in Applied Mechanics and Engineering</em>, 305:89–110, 2016.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id3">LadevezePNeron10</a></span></dt>
 <dd><p>Pierre Ladevèze, J-C Passieux, and David Néron. The latin multiscale computational method and the proper generalized decomposition. <em>Computer Methods in Applied Mechanics and Engineering</em>, 199(21-22):1287–1296, 2010.</p>
 </dd>
-<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id2">LBL16</a></span></dt>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id3">LBL16</a></span></dt>
 <dd><p>Zeliang Liu, MA Bessa, and Wing Kam Liu. Self-consistent clustering analysis: an efficient multi-scale scheme for inelastic heterogeneous materials. <em>Computer Methods in Applied Mechanics and Engineering</em>, 306:319–341, 2016.</p>
 </dd>
-<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">MS03</a></span></dt>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">MS03</a></span></dt>
 <dd><p>Jean-Claude Michel and Pierre Suquet. Nonuniform transformation field analysis. <em>International journal of solids and structures</em>, 40(25):6937–6955, 2003.</p>
 </dd>
-<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id2">YH07</a></span></dt>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id3">YH07</a></span></dt>
 <dd><p>Julien Yvonnet and Q-C He. The reduced model multiscale method (r3m) for the non-linear homogenization of hyperelastic media at finite strains. <em>Journal of Computational Physics</em>, 223(1):341–368, 2007.</p>
 </dd>
 </dl>
@@ -495,20 +544,6 @@ See the YAML at the top of this page for example.</p></li>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Welcome to your FE-SCA manual</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="Self-consistent%20clustering%20analysis%20%28SCA%29.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Self-consistent clustering analysis (SCA)</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

@@ -1,10 +1,19 @@
 # Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
+
 
 format: jb-book
 root: intro
 chapters:
-- file: Multiscale simulation
-- file: Self-consistent clustering analysis (SCA)
-- file: SCA VUMAT
-- file: Example
+- file: Introduction to Multiscale simulation
+- file: Installation Guide
+- file: User's Guide
+  sections:
+  - file: SCA VUMAT
+  - file: Materials
+- file: Theory Guide
+  sections:
+  - file: Self-consistent clustering analysis (SCA)
+- file: Tutorials
+  sections: 
+  - file: Single element analysis
+  - file: Uniaxial tension of glass fiber composite
