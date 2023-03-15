@@ -1,48 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Self-consistent clustering analysis (SCA) &#8212; FE-SCA Manual V0.0</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +63,93 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Self-consistent clustering analysis (SCA)';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Tutorials" href="Tutorials.html" />
     <link rel="prev" title="Theory Guide" href="Theory%20Guide.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/Hidenn.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">FE-SCA Manual V0.0</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="_static/Hidenn.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/Hidenn.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -116,355 +159,321 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction%20to%20Multiscale%20simulation.html">
-   Introduction to Multiscale simulation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Installation%20Guide.html">
-   Installation Guide
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="User%27s%20Guide.html">
-   User’s Guide
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="SCA%20VUMAT.html">
-     SCA VUMAT
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Materials.html">
-     Materials
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="Theory%20Guide.html">
-   Theory Guide
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Self-consistent clustering analysis (SCA)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="Tutorials.html">
-   Tutorials
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Single%20element%20analysis.html">
-     Single element analysis
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Uniaxial%20tension%20of%20glass%20fiber%20composite.html">
-     Unaixial tension of glass fiber composite
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction%20to%20Multiscale%20simulation.html">Introduction to Multiscale simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation%20Guide.html">Installation Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="User%27s%20Guide.html">User’s Guide</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="SCA%20VUMAT.html">SCA VUMAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Materials.html">Materials</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Theory%20Guide.html">Theory Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Self-consistent clustering analysis (SCA)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Tutorials.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Single%20element%20analysis.html">Single element analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Uniaxial%20tension%20of%20glass%20fiber%20composite.html">Unaixial tension of glass fiber composite</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jiachenguoNU/FE-SCA_manual" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jiachenguoNU/FE-SCA_manual/issues/new?title=Issue%20on%20page%20%2FSelf-consistent clustering analysis (SCA).html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
 
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
 
 
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Self-consistent clustering analysis (SCA).md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
   </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/jiachenguoNU/FE-SCA_manual"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/jiachenguoNU/FE-SCA_manual/issues/new?title=Issue%20on%20page%20%2FSelf-consistent clustering analysis (SCA).html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/Self-consistent clustering analysis (SCA).md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
+</div></div>
       
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
+    </div>
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
 </div>
+</div>
+              
+              
 
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Self-consistent clustering analysis (SCA)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Self-consistent clustering analysis (SCA)</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                    </div>
-                </div>
-            </div>
-            <main id="main-content" role="main">
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="self-consistent-clustering-analysis-sca">
-<h1>Self-consistent clustering analysis (SCA)<a class="headerlink" href="#self-consistent-clustering-analysis-sca" title="Permalink to this headline">#</a></h1>
+<h1>Self-consistent clustering analysis (SCA)<a class="headerlink" href="#self-consistent-clustering-analysis-sca" title="Permalink to this heading">#</a></h1>
 <p>The computational paradigm of SCA mainly consists of 2 stages, namely the offline stage and the online stage. In the offline stage, material points with similar elastic mechanical responses are grouped into the same cluster. The material points are clustered using <span class="math notranslate nohighlight">\(k-\)</span> means clustering algorithm based on the strain concentration tensor <span class="math notranslate nohighlight">\(\mathbf{A}_{m}(\mathbf{x})\)</span>, which is defined as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3051f262-387b-4a08-aec4-be9f40e83cb7">
-<span class="eqno">(1)<a class="headerlink" href="#equation-3051f262-387b-4a08-aec4-be9f40e83cb7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-42be587f-b7f9-4e9e-90b7-409248897028">
+<span class="eqno">(1)<a class="headerlink" href="#equation-42be587f-b7f9-4e9e-90b7-409248897028" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \boldsymbol{\varepsilon}_{m}(\mathbf{x})=\mathbf{A}_{m}(\mathbf{x}): \boldsymbol{\varepsilon}_{M} 
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon}_{M}\)</span> is the prescribed macroscopic strain along different directions, <span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon}_{m}\)</span> is the resultant local strain in the micro-scale level. Note only elastic response is required for the offline computations since we are assuming that the material points having similar mechanical responses in the elastic range should behave similarly in the nonlinear plastic range \cite{liu2016self}. With the obtained strain concentration tensor <span class="math notranslate nohighlight">\(\mathbf{A}_{m}(\mathbf{x})\)</span> at each different material point, the whole computational domain can be effectively decomposed by the <span class="math notranslate nohighlight">\(k\)</span>-means clustering algorithm. Therefore, the number of DOF for the problem can be significantly reduced. \ref{fig:Fig_domain16}(c) and (d)). As shown in Fig. 20, the 45<span class="math notranslate nohighlight">\(\times\)</span>45 mesh can be decomposed into 12 clusters. Therefore, the total degree of freedom is reduced from 2025 to 12.</p>
 <p>For the clustered material points, we assume the local variable <span class="math notranslate nohighlight">\(\beta(x)\)</span> (such as displacement, stress, strain and etc) is uniform inside each cluster. We introduce characteristic function <span class="math notranslate nohighlight">\(\chi^I(x)\)</span> in <span class="math notranslate nohighlight">\(I-\)</span> th cluster as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0974bdf7-78b2-47de-b27d-deba9ea4ba3b">
-<span class="eqno">(2)<a class="headerlink" href="#equation-0974bdf7-78b2-47de-b27d-deba9ea4ba3b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9b58fa56-5570-457b-a86f-96050c8595d7">
+<span class="eqno">(2)<a class="headerlink" href="#equation-9b58fa56-5570-457b-a86f-96050c8595d7" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \int_{\Omega} \chi^{I}(\mathbf{x})[\bullet] d \mathbf{x} \equiv \int_{\Omega^{I}}[\bullet] d \mathbf{x} 
 \end{equation}\]</div>
 <p>Therefore, local variable <span class="math notranslate nohighlight">\(\beta(x)\)</span> can be expressed as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-754fe213-93d5-470f-a2e1-2cc79cb7493b">
-<span class="eqno">(3)<a class="headerlink" href="#equation-754fe213-93d5-470f-a2e1-2cc79cb7493b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2b0b1c33-7c3f-4624-a27a-3129b42c525d">
+<span class="eqno">(3)<a class="headerlink" href="#equation-2b0b1c33-7c3f-4624-a27a-3129b42c525d" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \beta(\mathbf{x})=\sum_{I=1}^{k} \beta^{I} \chi^{I}(\mathbf{x}) 
  \label{beta}
 \end{equation}\]</div>
 <p>In micromechanics, the linear momentum balance equation can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-608fb3e2-f618-4ff3-9b49-4bc94c376904">
-<span class="eqno">(4)<a class="headerlink" href="#equation-608fb3e2-f618-4ff3-9b49-4bc94c376904" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-77ab16a0-1585-4a4a-a6f8-72343d6e84f0">
+<span class="eqno">(4)<a class="headerlink" href="#equation-77ab16a0-1585-4a4a-a6f8-72343d6e84f0" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \frac{\partial \sigma_{i j}(\mathbf{x})}{\partial x_{i}}=0
   \label{equal}
 \end{equation}\]</div>
 <p>By assuming a linear elastic reference material with elastic modulus <span class="math notranslate nohighlight">\(C^0\)</span>, <span class="math notranslate nohighlight">\(\sigma_ij\)</span> can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78e1af5e-12c1-43ec-b6bd-be74bdf57621">
-<span class="eqno">(5)<a class="headerlink" href="#equation-78e1af5e-12c1-43ec-b6bd-be74bdf57621" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ee78d8dd-66ba-4eb1-ac41-380c42ceccd2">
+<span class="eqno">(5)<a class="headerlink" href="#equation-ee78d8dd-66ba-4eb1-ac41-380c42ceccd2" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \sigma_ij(x) = C^0 : \epsilon(x) + p(x)
  \label{polarization}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(p(x)\)</span> is the polarization stress. Substituting Eq. \ref{polarization} into Eq.\ref{equal}, we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff30bcc5-769e-441f-a5a4-d17b9f29a4a8">
-<span class="eqno">(6)<a class="headerlink" href="#equation-ff30bcc5-769e-441f-a5a4-d17b9f29a4a8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-acf6e2ac-9843-42c6-aa12-bb101302f855">
+<span class="eqno">(6)<a class="headerlink" href="#equation-acf6e2ac-9843-42c6-aa12-bb101302f855" title="Permalink to this equation">#</a></span>\[\begin{equation}
  C_{i j k l}^{0} \frac{\partial \varepsilon_{k l}(\mathbf{x})}{\partial x_{i}}=-\frac{\partial p_{i j}(\mathbf{x})}{\partial x_{i}} 
  \label{pde}
 \end{equation}\]</div>
 <p>which is a linear partial differential equation. Using the theory of Green’s function, the solution of Eq. \ref{pde} can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-313d5474-b8a6-4025-bcad-0bfb37fd4afc">
-<span class="eqno">(7)<a class="headerlink" href="#equation-313d5474-b8a6-4025-bcad-0bfb37fd4afc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-98d43812-9ac6-4c1a-8cec-04138b5306fd">
+<span class="eqno">(7)<a class="headerlink" href="#equation-98d43812-9ac6-4c1a-8cec-04138b5306fd" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \varepsilon(\mathbf{x})+\int_{\Omega} \Phi^{0}\left(\mathbf{x}, \mathbf{x}^{\prime}\right): \mathbf{p}\left(\mathbf{x}^{\prime}\right) d \mathbf{x}^{\prime}-\varepsilon^{0}=0 
  \label{7}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\epsilon_0\)</span> is the homogeneous far-field strain in the reference material. Substituting Eq. \ref{polarization} into Eq. \ref{7}, we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-966ce216-53be-4357-afd2-18d3c0999b7e">
-<span class="eqno">(8)<a class="headerlink" href="#equation-966ce216-53be-4357-afd2-18d3c0999b7e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4f5ff13d-a771-4548-8ebd-5166c6b69c0a">
+<span class="eqno">(8)<a class="headerlink" href="#equation-4f5ff13d-a771-4548-8ebd-5166c6b69c0a" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \varepsilon(\mathbf{x})+\int_{\Omega} \Phi^{0}\left(\mathbf{x}, \mathbf{x}^{\prime}\right):\left[\sigma\left(\mathbf{x}^{\prime}\right)-\mathbf{C}^{0}: \varepsilon\left(\mathbf{x}^{\prime}\right)\right] d \mathbf{x}^{\prime}-\varepsilon^{0}=0
  \label{8}
 \end{equation}\]</div>
 <p>which is the so-called Lippmann-Schwinger equation. Since material points have been decomposed into different clusters, the averaged Lippmann-Schwinger equation can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d8700cbe-a2cb-4787-b54e-338267babe08">
-<span class="eqno">(9)<a class="headerlink" href="#equation-d8700cbe-a2cb-4787-b54e-338267babe08" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-36291a19-5895-4b4b-b4c0-28d6182f8ea0">
+<span class="eqno">(9)<a class="headerlink" href="#equation-36291a19-5895-4b4b-b4c0-28d6182f8ea0" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \frac{1}{c^{I}|\Omega|} \int_{\Omega} \chi^{I}(\mathbf{x})  \varepsilon(\mathbf{x}) d \mathbf{x}  +\frac{1}{c^{I}|\Omega|} \int_{\Omega} \int_{\Omega} \chi^{I}(\mathbf{x}) \Phi^{0}\left(\mathbf{x}, \mathbf{x}^{\prime}\right):\left[ \sigma\left(\mathbf{x}^{\prime}\right)-\mathbf{C}^{0}:  \varepsilon\left(\mathbf{x}^{\prime}\right)\right] d \mathbf{x}^{\prime} d \mathbf{x}- \varepsilon^{0}=0 
   \label{9}
 \end{equation}\]</div>
 <p>we can obtain the expression for stress and strain using Eq. \ref{beta}</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b14d9470-ad60-47de-a7c1-74ca7d9b4341">
-<span class="eqno">(10)<a class="headerlink" href="#equation-b14d9470-ad60-47de-a7c1-74ca7d9b4341" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dee802ee-25ae-4811-a288-3939d8f0603e">
+<span class="eqno">(10)<a class="headerlink" href="#equation-dee802ee-25ae-4811-a288-3939d8f0603e" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \sigma(\mathbf{x})=\sum_{J=1}^{k} \chi^{J}(\mathbf{x})  \sigma^{J} , \quad  \varepsilon(\mathbf{x})=\sum_{J=1}^{k} \chi^{J}(\mathbf{x})  \varepsilon^{J}
  \label{discretize}
 \end{equation}\]</div>
 <p>Substituting Eq. \ref{discretize} into Eq. \ref{9}, we obtain the discretized Lippmann-Schwinger equation and it can be simplified as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e4cfe32c-f4b0-4557-bfa8-eef27f869387">
-<span class="eqno">(11)<a class="headerlink" href="#equation-e4cfe32c-f4b0-4557-bfa8-eef27f869387" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fe74e7fa-0940-49f4-8803-5e06a6547c8e">
+<span class="eqno">(11)<a class="headerlink" href="#equation-fe74e7fa-0940-49f4-8803-5e06a6547c8e" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \varepsilon^{I}+\sum_{J=1}^{k}\left[\frac{1}{c^{I}|\Omega|} \int_{\Omega} \int_{\Omega} \chi^{I}(\mathbf{x}) \chi^{J}\left(\mathbf{x}^{\prime}\right) \Phi^{0}\left(\mathbf{x}, \mathbf{x}^{\prime}\right) d \mathbf{x}^{\prime} d \mathbf{x}\right]:\left[ \sigma^{J}-\mathbf{C}^{0}: \varepsilon^{J}\right]-\Delta \varepsilon^{0}=0 
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(C_I\)</span> is the volumn fraction of cluster <span class="math notranslate nohighlight">\(I\)</span>. The term inside the bracket is defined as the interaction tensors <span class="math notranslate nohighlight">\( \mathbf{D}^{I J}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-e3d74753-4abb-443e-b827-d02059f440c3">
-<span class="eqno">(12)<a class="headerlink" href="#equation-e3d74753-4abb-443e-b827-d02059f440c3" title="Permalink to this equation">#</a></span>\[\begin{equation} \label{Eq 27}
+<div class="amsmath math notranslate nohighlight" id="equation-874c6ddb-e203-4baa-a935-4787d631ac0c">
+<span class="eqno">(12)<a class="headerlink" href="#equation-874c6ddb-e203-4baa-a935-4787d631ac0c" title="Permalink to this equation">#</a></span>\[\begin{equation} \label{Eq 27}
     \bm{D}^{IJ} = \frac{1}{c^{I}|\Omega|} \int_{\Omega} \int_{\Omega}\chi^{I}(x)\chi^{J}(y) \Phi^{0}(x,y)dxdy.
 \end{equation}\]</div>
 <p>In the equation, <span class="math notranslate nohighlight">\( \mathbf{D}^{I J}\)</span> is the interaction tensor between <span class="math notranslate nohighlight">\(I\)</span>th and <span class="math notranslate nohighlight">\(J\)</span>th clusters. In the online stage, the mechanical response of the microstructure is obtained by solving the incremental form of discretized \textbf{L}ippmann-\textbf{S}chwinger equation.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-698bb1f2-b756-4a7f-be68-21ff42fa2997">
-<span class="eqno">(13)<a class="headerlink" href="#equation-698bb1f2-b756-4a7f-be68-21ff42fa2997" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8a14a7d1-9be4-4a70-a661-fe6bc37776aa">
+<span class="eqno">(13)<a class="headerlink" href="#equation-8a14a7d1-9be4-4a70-a661-fe6bc37776aa" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \Delta \varepsilon^{I}+\sum_{J=1}^{k} \mathbf{D}^{I J}:\left[\Delta \sigma^{J}-\mathbf{C}^{0}: \Delta \varepsilon^{J}\right]-\Delta \varepsilon^{0}=0 
  \label{lp}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf\Delta \varepsilon^{J}\)</span> and <span class="math notranslate nohighlight">\(\mathbf\Delta \sigma^{J}\)</span> are incremental strain and stress in the <span class="math notranslate nohighlight">\(J\)</span>th cluster; <span class="math notranslate nohighlight">\(k\)</span> is the number of clusters; <span class="math notranslate nohighlight">\(\mathbf{C}^{0}\)</span> is the reference material stiffness; <span class="math notranslate nohighlight">\(\mathbf\Delta \varepsilon^{0}\)</span> is the far-field strain. Note that Eq \ref{lp} is obtained by averaging the stress and strain in each different cluster. Since the number of clusters is far less than the number of DOF of the original system, it can be much faster to solve Eq \ref{lp}. For more details please see \cite{liu2016self}.</p>
 <div class="docutils container" id="id1">
-<dl class="citation">
-<dt class="label" id="id2"><span class="brackets">FC00</span></dt>
-<dd><p>Frédéric Feyel and Jean-Louis Chaboche. Fe2 multiscale approach for modelling the elastoviscoplastic behaviour of long fibre sic/ti composite materials. <em>Computer methods in applied mechanics and engineering</em>, 183(3-4):309–330, 2000.</p>
-</dd>
-<dt class="label" id="id8"><span class="brackets">KWR+16</span></dt>
-<dd><p>Julian Kochmann, Stephan Wulfinghoff, Stefanie Reese, Jaber Rezaei Mianroodi, and Bob Svendsen. Two-scale fe–fft-and phase-field-based computational modeling of bulk microstructural evolution and macroscopic material behavior. <em>Computer Methods in Applied Mechanics and Engineering</em>, 305:89–110, 2016.</p>
-</dd>
-<dt class="label" id="id5"><span class="brackets">LadevezePNeron10</span></dt>
-<dd><p>Pierre Ladevèze, J-C Passieux, and David Néron. The latin multiscale computational method and the proper generalized decomposition. <em>Computer Methods in Applied Mechanics and Engineering</em>, 199(21-22):1287–1296, 2010.</p>
-</dd>
-<dt class="label" id="id6"><span class="brackets">LBL16</span></dt>
-<dd><p>Zeliang Liu, MA Bessa, and Wing Kam Liu. Self-consistent clustering analysis: an efficient multi-scale scheme for inelastic heterogeneous materials. <em>Computer Methods in Applied Mechanics and Engineering</em>, 306:319–341, 2016.</p>
-</dd>
-<dt class="label" id="id3"><span class="brackets">MS03</span></dt>
-<dd><p>Jean-Claude Michel and Pierre Suquet. Nonuniform transformation field analysis. <em>International journal of solids and structures</em>, 40(25):6937–6955, 2003.</p>
-</dd>
-<dt class="label" id="id4"><span class="brackets">YH07</span></dt>
-<dd><p>Julien Yvonnet and Q-C He. The reduced model multiscale method (r3m) for the non-linear homogenization of hyperelastic media at finite strains. <em>Journal of Computational Physics</em>, 223(1):341–368, 2007.</p>
-</dd>
-</dl>
+<div class="citation" id="id2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>FC00<span class="fn-bracket">]</span></span>
+<p>Frédéric Feyel and Jean-Louis Chaboche. Fe2 multiscale approach for modelling the elastoviscoplastic behaviour of long fibre sic/ti composite materials. <em>Computer methods in applied mechanics and engineering</em>, 183(3-4):309–330, 2000.</p>
+</div>
+<div class="citation" id="id8" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>KWR+16<span class="fn-bracket">]</span></span>
+<p>Julian Kochmann, Stephan Wulfinghoff, Stefanie Reese, Jaber Rezaei Mianroodi, and Bob Svendsen. Two-scale fe–fft-and phase-field-based computational modeling of bulk microstructural evolution and macroscopic material behavior. <em>Computer Methods in Applied Mechanics and Engineering</em>, 305:89–110, 2016.</p>
+</div>
+<div class="citation" id="id5" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>LadevezePNeron10<span class="fn-bracket">]</span></span>
+<p>Pierre Ladevèze, J-C Passieux, and David Néron. The latin multiscale computational method and the proper generalized decomposition. <em>Computer Methods in Applied Mechanics and Engineering</em>, 199(21-22):1287–1296, 2010.</p>
+</div>
+<div class="citation" id="id6" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>LBL16<span class="fn-bracket">]</span></span>
+<p>Zeliang Liu, MA Bessa, and Wing Kam Liu. Self-consistent clustering analysis: an efficient multi-scale scheme for inelastic heterogeneous materials. <em>Computer Methods in Applied Mechanics and Engineering</em>, 306:319–341, 2016.</p>
+</div>
+<div class="citation" id="id3" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>MS03<span class="fn-bracket">]</span></span>
+<p>Jean-Claude Michel and Pierre Suquet. Nonuniform transformation field analysis. <em>International journal of solids and structures</em>, 40(25):6937–6955, 2003.</p>
+</div>
+<div class="citation" id="id4" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>YH07<span class="fn-bracket">]</span></span>
+<p>Julien Yvonnet and Q-C He. The reduced model multiscale method (r3m) for the non-linear homogenization of hyperelastic media at finite strains. <em>Journal of Computational Physics</em>, 223(1):341–368, 2007.</p>
+</div>
+</div>
 </div>
 </section>
 
@@ -488,50 +497,85 @@ title="Print to PDF"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Theory%20Guide.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Theory Guide</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Theory%20Guide.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Theory Guide</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="Tutorials.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="Tutorials.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Tutorials</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
   
-    By Jiachen Guo, Northwestern University<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
-</div>
+<p class="component-author">
+By Jiachen Guo, Northwestern University
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
 
-      </div>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
