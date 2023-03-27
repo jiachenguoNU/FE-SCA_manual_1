@@ -3,7 +3,7 @@ The section illustrates how to define a material in FE-SCA simulation. There are
 
 The material parameters for fiber and matrix can be either defined in the `Abaqus-CAE user interface` or in the `inp` file. We recommend to define the parameters in the `inp` file.
 
-In the `inp` file, the material parameters are defined in the `** Materials block`, as shown follows.
+In the `inp` file, the material parameters are defined in the `** Materials` block, as shown follows.
 
 ```none
 **  Materials
@@ -23,3 +23,18 @@ In the `inp` file, the material parameters are defined in the `** Materials bloc
 700
 ```
 The material parameters defined in the `inp` file include 2 parts, namely parameters for matrix and fiber. The matrix is modeled using isotropic elasto-plastic material law whereas the fiber is modeled using anisotropic elastic material law with continuum damage.
+
+## Defining material parameters for matrix
+The material parameters for matrix include elastic modulus `$E_m$`, Possion's ratio `$\nu_m$` and hardening curve. Note that the hardening curve has to be defined in the `VUMAT` subroutine instead of the `inp` file. To modify the hardening curve, users need to open the `VUMAT` subroutine and navigate to `subroutine uhardening` section. The hardening curve is defined using the code as shown below. `table(1,:)` refers to the yield stress $\sigma_y$ for different equivalent plastic strain $\epsilon_p$. `table(2,:)` refers to the corresponding equivalent plastic strain amplitude. Users can add more data points to the yield curve by adding more columns for the table. 
+```none
+C set yield stress to last value of table, hardening to zero
+C
+
+      table(1,:)=(/2.0, 2.01/)
+      table(2,:)=(/0.0, 0.001/)
+      syield=table(1, 1)
+      hard = zero
+```
+
+
+## Defining material parameters for fiber
