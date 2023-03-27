@@ -1,9 +1,9 @@
 # Materials
 The section illustrates how to define a material in FE-SCA simulation. There are 2 options for the FE-SCA. One is the 2-phase simulation that models fiber and matrix. The other one is 3-phase simulation that also considers voids.
 
-The material parameters for fiber and matrix can be either defined in the Abaqus-CAE user interface or in the inp file. We recommend to define the parameters in the inp file.
+The material parameters for fiber and matrix can be either defined in the `Abaqus-CAE user interface` or in the `inp` file. We recommend to define the parameters in the `inp` file.
 
-In the inp file, the material parameters are defined in the `** Materials block`, as shown follows.
+In the `inp` file, the material parameters are defined in the `** Materials block`, as shown follows.
 
 ```none
 **  Materials
@@ -22,4 +22,4 @@ In the inp file, the material parameters are defined in the `** Materials block`
 *Depvar, delete=517
 700
 ```
-The material parameters include 2 parts, namely parameters for matrix and fiber. The matrix is modeled using isotropic elasto-plastic material law whereas the fiber is modeled using anisotropic elastic material law with continuum damage.
+The material parameters defined in the `inp` file include 2 parts, namely parameters for matrix and fiber. The matrix is modeled using isotropic elasto-plastic material law whereas the fiber is modeled using anisotropic elastic material law with continuum damage.
