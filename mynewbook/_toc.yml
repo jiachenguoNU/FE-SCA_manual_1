@@ -13,6 +13,7 @@ chapters:
 - file: Theory Guide
   sections:
   - file: Self-consistent clustering analysis (SCA)
+  - file: Material damage model
 - file: Tutorials
   sections: 
   - file: Single element analysis
