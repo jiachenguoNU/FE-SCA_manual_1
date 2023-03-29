@@ -395,7 +395,7 @@ document.write(`
 *User Material, constants=24
 **Em,  vm,  E11, E22, E33, v12, v13, v23
 3.76e3, 0.39, 138.8e3, 7.08e3, 7.08e3, 0.25, 0.25, 0.31
-**G12,G13,G23,  E0,   v0, ecr1, ecr2, ecr3
+**G12,G13,G23,  E0,   v0, d1, d, d3
 4.49e3, 4.49e3,  4.49e3, 4.49e3, 0.39, 0.5, 0., 0
 ** alpha(evolution rate of the damage parameter), rve_dmg, SC,  gammastep, clc_o,   not_used, not_used, not_used
    500,    200,   1.0  , 0.5,  100000.0, 14,      89,      89
@@ -421,7 +421,8 @@ C
 </section>
 <section id="defining-material-parameters-for-fiber">
 <h2>Defining material parameters for fiber<a class="headerlink" href="#defining-material-parameters-for-fiber" title="Permalink to this heading">#</a></h2>
-<p>The material properties for fiber is modeled using the orthotropic elastic material law with continuum damage. There are 9 parameters to define the anisotropic elastic material properties, namely, <span class="math notranslate nohighlight">\(E_11\)</span>, <span class="math notranslate nohighlight">\(E_22\)</span>, <span class="math notranslate nohighlight">\(E_33\)</span>, <span class="math notranslate nohighlight">\(G_12\)</span>, <span class="math notranslate nohighlight">\(G_13\)</span>, <span class="math notranslate nohighlight">\(G_23\)</span>, <span class="math notranslate nohighlight">\(\nu_12\)</span>, <span class="math notranslate nohighlight">\(\nu_13\)</span> and <span class="math notranslate nohighlight">\(\nu_23\)</span> (it is assumed that <span class="math notranslate nohighlight">\(\nu_{ij} = \nu_{ji}\)</span>). The continuum damage model requires to define 5 parameters (theory of the continuum damage model used).</p>
+<p>The material properties for fiber is modeled using the orthotropic elastic material law with continuum damage. There are 9 parameters to define the anisotropic elastic material properties, namely, <span class="math notranslate nohighlight">\(E_{11}\)</span>, <span class="math notranslate nohighlight">\(E_{22}\)</span>, <span class="math notranslate nohighlight">\(E_{33}\)</span>, <span class="math notranslate nohighlight">\(G_{12}\)</span>, <span class="math notranslate nohighlight">\(G_{13}\)</span>, <span class="math notranslate nohighlight">\(G_{23}\)</span>, <span class="math notranslate nohighlight">\(\nu_{12}\)</span>, <span class="math notranslate nohighlight">\(\nu_{13}\)</span> and <span class="math notranslate nohighlight">\(\nu_{23}\)</span> (it is assumed that <span class="math notranslate nohighlight">\(\nu_{ij} = \nu_{ji}\)</span>).</p>
+<p>The continuum damage model requires to define 4 parameters (theory of the continuum damage model used): <span class="math notranslate nohighlight">\(d_1\)</span>, <span class="math notranslate nohighlight">\(d_2\)</span>, <span class="math notranslate nohighlight">\(d_3\)</span> are used to compute the onset plastic strain for damamge whereas <span class="math notranslate nohighlight">\(\alpha\)</span> is used to compute the evolution rate of damage. For more details about the damage model, please refer to <strong>Material damage model</strong>.</p>
 </section>
 </section>
 
@@ -511,7 +512,7 @@ By Jiachen Guo, Northwestern University
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

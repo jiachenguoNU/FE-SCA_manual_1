@@ -14,7 +14,7 @@ In the `inp` file, the material parameters are defined in the `** Materials` blo
 *User Material, constants=24
 **Em,  vm,  E11, E22, E33, v12, v13, v23
 3.76e3, 0.39, 138.8e3, 7.08e3, 7.08e3, 0.25, 0.25, 0.31
-**G12,G13,G23,  E0,   v0, ecr1, ecr2, ecr3
+**G12,G13,G23,  E0,   v0, d1, d, d3
 4.49e3, 4.49e3,  4.49e3, 4.49e3, 0.39, 0.5, 0., 0
 ** alpha(evolution rate of the damage parameter), rve_dmg, SC,  gammastep, clc_o,   not_used, not_used, not_used
    500,    200,   1.0  , 0.5,  100000.0, 14,      89,      89
@@ -40,4 +40,6 @@ C
 
 
 ## Defining material parameters for fiber
-The material properties for fiber is modeled using the orthotropic elastic material law with continuum damage. There are 9 parameters to define the anisotropic elastic material properties, namely, $E_11$, $E_22$, $E_33$, $G_12$, $G_13$, $G_23$, $\nu_12$, $\nu_13$ and $\nu_23$ (it is assumed that $\nu_{ij} = \nu_{ji}$). The continuum damage model requires to define 5 parameters (theory of the continuum damage model used).
+The material properties for fiber is modeled using the orthotropic elastic material law with continuum damage. There are 9 parameters to define the anisotropic elastic material properties, namely, $E_{11}$, $E_{22}$, $E_{33}$, $G_{12}$, $G_{13}$, $G_{23}$, $\nu_{12}$, $\nu_{13}$ and $\nu_{23}$ (it is assumed that $\nu_{ij} = \nu_{ji}$). 
+
+The continuum damage model requires to define 4 parameters (theory of the continuum damage model used): $d_1$, $d_2$, $d_3$ are used to compute the onset plastic strain for damamge whereas $\alpha$ is used to compute the evolution rate of damage. For more details about the damage model, please refer to **Material damage model**.

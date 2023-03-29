@@ -388,22 +388,22 @@ document.write(`
 <section id="damage-initiation">
 <h2>Damage initiation<a class="headerlink" href="#damage-initiation" title="Permalink to this heading">#</a></h2>
 <p>The Johnson-Cook criterion is used to define the onset of damage. The Johnson-Cook criterion is a special case of the ductile criterion in which the equivalent plastic strain at the onset of damage, <span class="math notranslate nohighlight">\(\epsilon^{cr}\)</span>. It is assumed to be of the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0d1b6441-669a-4c0c-a114-08b6d267b53c">
-<span class="eqno">(14)<a class="headerlink" href="#equation-0d1b6441-669a-4c0c-a114-08b6d267b53c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-29cdbb24-0315-4e68-82ca-71eaab6930b2">
+<span class="eqno">(14)<a class="headerlink" href="#equation-29cdbb24-0315-4e68-82ca-71eaab6930b2" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \bar{\varepsilon}_{\mathrm{D}}^{cr}=\left[d_{1}+d_{2} \exp \left(-d_{3} \eta\right)\right]\left[1+d_{4} \ln \left(\frac{\dot{\bar{\varepsilon}}^{p l}}{\dot{\varepsilon}_{0}}\right)\right]\left(1+d_{5} \hat{\theta}\right) 
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(d_1\)</span>-<span class="math notranslate nohighlight">\(d_5\)</span> are failure parameters and <span class="math notranslate nohighlight">\(\dot{\varepsilon}_{0}\)</span> is the reference strain rate. Note that it is assumed the onset damage strain of fiber material is independent on strain rate and temperature. As a result, <span class="math notranslate nohighlight">\(d_4 = d_5 = 0\)</span>. <span class="math notranslate nohighlight">\(d_1, d_2, d_3\)</span> are input parameters for the material definition.</p>
 <p><span class="math notranslate nohighlight">\(\eta\)</span> is defined as the ratio of pressure and von Mises stress.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-856aacaf-24be-4182-9d97-256ddbce00d7">
-<span class="eqno">(15)<a class="headerlink" href="#equation-856aacaf-24be-4182-9d97-256ddbce00d7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2408492f-e386-42ec-8ae1-36dfece58bb3">
+<span class="eqno">(15)<a class="headerlink" href="#equation-2408492f-e386-42ec-8ae1-36dfece58bb3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \eta = \frac{\frac{1}{3}\sigma_{ii}}{\sqrt{\frac{1}{2}S_{ij}S_{ij}}}
 \end{equation}\]</div>
 </section>
 <section id="damage-evolution">
 <h2>Damage evolution<a class="headerlink" href="#damage-evolution" title="Permalink to this heading">#</a></h2>
 <p>Exponential law is used to account for the damage evolution. The evolution law can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-99bd1440-223c-4e2f-affa-709af16299a2">
-<span class="eqno">(16)<a class="headerlink" href="#equation-99bd1440-223c-4e2f-affa-709af16299a2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5e5a386f-3f8f-42c7-90c4-8257cd63dc66">
+<span class="eqno">(16)<a class="headerlink" href="#equation-5e5a386f-3f8f-42c7-90c4-8257cd63dc66" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{array}{lll}d(\varepsilon^{p})=1-\frac{\varepsilon^{cr}}{\varepsilon^{p}} \exp \left(-\alpha(\epsilon^{p}-\varepsilon^{cr})\right) &amp; &amp; \varepsilon^{p} \geq \varepsilon_{0} \\ d(\varepsilon^{p})=0   &amp;&amp; \varepsilon^{p}&lt;\varepsilon_{0}\end{array} 
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\varepsilon^{p}\)</span> is the equivalent plastic strain, <span class="math notranslate nohighlight">\(\varepsilon^{cr}\)</span> the onset damage strain.</p>
@@ -496,7 +496,7 @@ By Jiachen Guo, Northwestern University
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

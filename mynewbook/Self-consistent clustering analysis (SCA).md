@@ -62,7 +62,7 @@ Substituting Eq. \ref{discretize} into Eq. \ref{9}, we obtain the discretized Li
 \end{equation}
 where $C_I$ is the volumn fraction of cluster $I$. The term inside the bracket is defined as the interaction tensors $ \mathbf{D}^{I J}$ 
 \begin{equation} \label{Eq 27}
-    \bm{D}^{IJ} = \frac{1}{c^{I}|\Omega|} \int_{\Omega} \int_{\Omega}\chi^{I}(x)\chi^{J}(y) \Phi^{0}(x,y)dxdy.
+    {D}^{IJ} = \frac{1}{c^{I}|\Omega|} \int_{\Omega} \int_{\Omega}\chi^{I}(x)\chi^{J}(y) \Phi^{0}(x,y)dxdy.
 \end{equation}
 
 In the equation, $ \mathbf{D}^{I J}$ is the interaction tensor between $I$th and $J$th clusters. In the online stage, the mechanical response of the microstructure is obtained by solving the incremental form of discretized \textbf{L}ippmann-\textbf{S}chwinger equation.
@@ -73,5 +73,3 @@ In the equation, $ \mathbf{D}^{I J}$ is the interaction tensor between $I$th and
 \end{equation}
 where $\mathbf\Delta \varepsilon^{J}$ and $\mathbf\Delta \sigma^{J}$ are incremental strain and stress in the $J$th cluster; $k$ is the number of clusters; $\mathbf{C}^{0}$ is the reference material stiffness; $\mathbf\Delta \varepsilon^{0}$ is the far-field strain. Note that Eq \ref{lp} is obtained by averaging the stress and strain in each different cluster. Since the number of clusters is far less than the number of DOF of the original system, it can be much faster to solve Eq \ref{lp}. For more details please see \cite{liu2016self}. 
 
-```{bibliography}
-```

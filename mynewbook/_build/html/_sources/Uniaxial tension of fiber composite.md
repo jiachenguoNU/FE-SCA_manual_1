@@ -7,15 +7,7 @@ height: 350px
 ---
 Dimension and mesh of the FE-SCA analysis
 ```
-
-The displacement field of the FE mesh is shown in the figure below.
-
-```{figure} ../Figs/fesca_disp.png
----
-height: 350px
----
-Displacement field 
-```
+The same microstructure used for single element analysis is used for this FE-SCA analysis.
 
 The input file for the FE-SCA analysis is shown below.
 ```none
@@ -210,4 +202,14 @@ Set-2, 1, 1, 0.006
 *Output, history, variable=PRESELECT
 *End Step
 
+```
+
+
+The displacement field of the FE mesh is shown in the figure below.
+
+```{figure} ../Figs/fesca_disp.png
+---
+height: 350px
+---
+Displacement field 
 ```
