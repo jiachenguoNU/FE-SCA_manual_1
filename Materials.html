@@ -168,6 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Theory%20Guide.html">Theory Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="Self-consistent%20clustering%20analysis%20%28SCA%29.html">Self-consistent clustering analysis (SCA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Material%20damage%20model.html">Material damage model</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Tutorials.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -383,7 +384,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="materials">
 <h1>Materials<a class="headerlink" href="#materials" title="Permalink to this heading">#</a></h1>
-<p>The section illustrates how to define a material in FE-SCA simulation. There are 2 options for the FE-SCA. One is the 2-phase simulation that models fiber and matrix. The other one is 3-phase simulation that also considers voids.</p>
+<p><strong>The section illustrates how to define a material in FE-SCA simulation</strong>. There are 2 options for the FE-SCA. One is the 2-phase simulation that models fiber and matrix. The other one is 3-phase simulation that also considers voids.</p>
 <p>The material parameters for fiber and matrix can be either defined in the <code class="docutils literal notranslate"><span class="pre">Abaqus-CAE</span> <span class="pre">user</span> <span class="pre">interface</span></code> or in the <code class="docutils literal notranslate"><span class="pre">inp</span></code> file. We recommend to define the parameters in the <code class="docutils literal notranslate"><span class="pre">inp</span></code> file.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">inp</span></code> file, the material parameters are defined in the <code class="docutils literal notranslate"><span class="pre">**</span> <span class="pre">Materials</span></code> block, as shown follows.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>**  Materials
@@ -420,6 +421,7 @@ C
 </section>
 <section id="defining-material-parameters-for-fiber">
 <h2>Defining material parameters for fiber<a class="headerlink" href="#defining-material-parameters-for-fiber" title="Permalink to this heading">#</a></h2>
+<p>The material properties for fiber is modeled using the orthotropic elastic material law with continuum damage. There are 9 parameters to define the anisotropic elastic material properties, namely, <span class="math notranslate nohighlight">\(E_11\)</span>, <span class="math notranslate nohighlight">\(E_22\)</span>, <span class="math notranslate nohighlight">\(E_33\)</span>, <span class="math notranslate nohighlight">\(G_12\)</span>, <span class="math notranslate nohighlight">\(G_13\)</span>, <span class="math notranslate nohighlight">\(G_23\)</span>, <span class="math notranslate nohighlight">\(\nu_12\)</span>, <span class="math notranslate nohighlight">\(\nu_13\)</span> and <span class="math notranslate nohighlight">\(\nu_23\)</span> (it is assumed that <span class="math notranslate nohighlight">\(\nu_{ij} = \nu_{ji}\)</span>). The continuum damage model requires to define 5 parameters (theory of the continuum damage model used).</p>
 </section>
 </section>
 

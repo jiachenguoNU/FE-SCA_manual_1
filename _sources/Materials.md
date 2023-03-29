@@ -1,5 +1,5 @@
 # Materials
-The section illustrates how to define a material in FE-SCA simulation. There are 2 options for the FE-SCA. One is the 2-phase simulation that models fiber and matrix. The other one is 3-phase simulation that also considers voids.
+**The section illustrates how to define a material in FE-SCA simulation**. There are 2 options for the FE-SCA. One is the 2-phase simulation that models fiber and matrix. The other one is 3-phase simulation that also considers voids.
 
 The material parameters for fiber and matrix can be either defined in the `Abaqus-CAE user interface` or in the `inp` file. We recommend to define the parameters in the `inp` file.
 
@@ -40,3 +40,4 @@ C
 
 
 ## Defining material parameters for fiber
+The material properties for fiber is modeled using the orthotropic elastic material law with continuum damage. There are 9 parameters to define the anisotropic elastic material properties, namely, $E_11$, $E_22$, $E_33$, $G_12$, $G_13$, $G_23$, $\nu_12$, $\nu_13$ and $\nu_23$ (it is assumed that $\nu_{ij} = \nu_{ji}$). The continuum damage model requires to define 5 parameters (theory of the continuum damage model used).
